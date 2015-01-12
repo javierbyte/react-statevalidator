@@ -83,5 +83,6 @@ Will return `true` if ALL our rules are valid ones, otherwise, `false`. Note tha
 
 # Roadmap.
 
-* Allow custom function validations.
-* Tets.
+* More validations and allow custom function validations.
+* Return a more detailed object with validating all.
+* Add some tests.
