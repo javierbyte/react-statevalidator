@@ -1,6 +1,6 @@
 # React State Validator
 
-This is a state validator inspired in the React `propTypes` style. Everything is valid until proven unvalid.
+This is a state validator inspired in the React `propTypes` style.
 
 # Installation
 
@@ -8,23 +8,35 @@ This is a state validator inspired in the React `propTypes` style. Everything is
 
 # Usage
 
-    var stateValidator = require('react-statevalidator');
+    var stateValidatorMixin = require('react-statevalidator');
 
     /* ... /*
 
-    mixins: ['stateValidator'];
+    mixins: ['stateValidatorMixin'];
 
-    // set all your validation options
+    /*
+    add a `stateValidations` function to your component
+    that returns an object with the desired validations.
+
+    Every property in this object must map to a property in the state of the current component.
+
+    The validations are arrays of strings describing the validations
+    (see shortcuts below) or functions that receive the value to
+    evaluate and must return `true` for valid and `false` for invalid.
+
+    Everything is valid until proven unvalid.
+    */
+
     stateValidations: function() {
         return {
-            validateState: [
+            aNumber: [
                 'number'
             ],
-            validateEmail: [
+            anEmail: [
                 'email',
                 'required'
             ],
-            lessThan10: [
+            thingLessThan10: [
                 function(evaluate) {
                     return evaluate < 10
                 }
@@ -38,3 +50,18 @@ This is a state validator inspired in the React `propTypes` style. Everything is
         }
     }
 
+    /*
+    And when you need to validate...
+    */
+
+    this.getInvalidStates();
+
+    /*
+    returns an object with the INVALID values, like
+
+    {
+        aNumber: true,
+        stringLessThan10: tue
+    }
+
+    Everything else is valid.
