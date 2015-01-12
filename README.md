@@ -1,12 +1,12 @@
-# React State Validator
+# React State Validator.
 
-This is a state validator inspired in the React `propTypes` style.
+React state validation tool.
 
-# Installation
+# Installation.
 
-    npm install react-statevalidator
+    npm install react-statevalidator --save
 
-# Usage
+# Usage.
 
     var stateValidatorMixin = require('react-statevalidator');
 
@@ -14,51 +14,62 @@ This is a state validator inspired in the React `propTypes` style.
 
     mixins: ['stateValidatorMixin'];
 
+## Setting validation rules.
 
-add a `stateValidations` function to your component that returns an object with the desired validations.
+Add a `stateValidations` object to your component that returns an object with the desired validations (see bellow for available validation rules).
 
-Every property in this object must map to a property in the state of the current component.
-
-The validations are arrays of strings describing the validations (see shortcuts below) or functions that receive the value to evaluate and must return `true` for valid and `false` for invalid.
-
-Everything is valid until proven unvalid.
-
-
-    stateValidations: function() {
-        return {
-            aNumber: [
-                'number'
-            ],
-            anEmail: [
-                'email',
-                'required'
-            ],
-            thingLessThan10: [
-                function(evaluate) {
-                    return evaluate < 10
-                }
-            ],
-            stringLessThan10: [
-                function(evaluate) {
-                    return evaluate.length < 10
-                },
+    stateValidations: {
+        isNumberRequired: [
+            this.state.aValue,
+            [
+                'number',
                 'required'
             ]
-        }
+        ],
+        isEmail: [
+            this.state.email,
+            [
+                'email'
+            ]
+        ],
+        numberLessThan10: [
+            this.state.aNumber,
+            [
+                'number'
+            ]
+        ],
+        stringLargerThan20: [
+            this.state.aString,
+            [
+                'string',
+                'required'
+            ]
+        ]
     }
 
+## Validating.
 
-And when you need to validate...
+Example: validating the `isNumberRequired` rule we previously defined:
 
+    this.validate('isNumberRequired');
 
-    this.getInvalidStates();
+Will return `true` if valid, or `false` is invalid.
 
+Is we want to validate all, simple run `this.validate` without parameters:
 
-This returns an object with the INVALID values, like:
+    this.validate();
 
-    {
-        aNumber: true,
-        stringLessThan10: tue
-    }
+Will return `true` if ALL our rules are valid ones.
 
-Everything else is valid.
+# Available validation rules.
+
+`email`: The value is an email.
+`number`: The value is strictly a number.
+`positiveNumber`: The value evaluates to a positive number.
+`required`: The value is there.
+
+`all`: All the selected values are valid.
+
+# Roadmap.
+
+Allow custom function validations.

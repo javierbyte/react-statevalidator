@@ -1,5 +1,5 @@
 {
-  "name": "react-statevalidation",
+  "name": "react-statevalidator",
   "version": "0.0.1",
   "description": "A simple React state validation tool mixin.",
   "main": "src/app.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/javierbyte/react-statevalidation.git"
+    "url": "https://github.com/javierbyte/react-statevalidator.git"
   },
   "keywords": [
     "react",
@@ -21,7 +21,7 @@
   "author": "Javier Bórquez <hola@javierbyte.com> (http://javierbyte.com/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/javierbyte/react-statevalidation/issues"
+    "url": "https://github.com/javierbyte/react-statevalidator/issues"
   },
-  "homepage": "https://github.com/javierbyte/react-statevalidation"
+  "homepage": "https://github.com/javierbyte/react-statevalidator"
 }
