@@ -14,18 +14,15 @@ This is a state validator inspired in the React `propTypes` style.
 
     mixins: ['stateValidatorMixin'];
 
-    /*
-    add a `stateValidations` function to your component
-    that returns an object with the desired validations.
 
-    Every property in this object must map to a property in the state of the current component.
+add a `stateValidations` function to your component that returns an object with the desired validations.
 
-    The validations are arrays of strings describing the validations
-    (see shortcuts below) or functions that receive the value to
-    evaluate and must return `true` for valid and `false` for invalid.
+Every property in this object must map to a property in the state of the current component.
 
-    Everything is valid until proven unvalid.
-    */
+The validations are arrays of strings describing the validations (see shortcuts below) or functions that receive the value to evaluate and must return `true` for valid and `false` for invalid.
+
+Everything is valid until proven unvalid.
+
 
     stateValidations: function() {
         return {
@@ -50,18 +47,18 @@ This is a state validator inspired in the React `propTypes` style.
         }
     }
 
-    /*
-    And when you need to validate...
-    */
+
+And when you need to validate...
+
 
     this.getInvalidStates();
 
-    /*
-    returns an object with the INVALID values, like
+
+This returns an object with the INVALID values, like:
 
     {
         aNumber: true,
         stringLessThan10: tue
     }
 
-    Everything else is valid.
+Everything else is valid.
