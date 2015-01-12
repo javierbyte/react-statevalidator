@@ -67,7 +67,7 @@ Will return and `object` with the validation results.
         required: true
     }
 
-Is we want to validate all our rules in `stateValidations`, simple run `this.validate` without parameters:
+If we want to validate all our rules in `stateValidations`, simple run `this.validate` without parameters:
 
     this.validate();
 
@@ -79,8 +79,7 @@ Will return `true` if ALL our rules are valid ones, otherwise, `false`. Note tha
 * `number`: The value is strictly a number.
 * `positiveNumber`: The value evaluates to a positive number.
 * `required`: The value is there.
-
-`all`: All the selected values are valid.
+* `all`: All the rules in the object are valid. This rule is created automatically.
 
 # Roadmap.
 

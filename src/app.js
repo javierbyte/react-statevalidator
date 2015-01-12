@@ -33,7 +33,7 @@ function runValidation(value, validations) {
 
         validationResults[currentValidation] = result;
 
-        if(!result) validationResults.all = false; // this fails, so not EVERYone is valid.
+        if(!result) validationResults.all = false;
     }
 
     return validationResults;
