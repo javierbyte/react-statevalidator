@@ -1,6 +1,6 @@
 {
   "name": "react-statevalidator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple React state validation tool mixin.",
   "main": "src/app.js",
   "scripts": {
