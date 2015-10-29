@@ -30,7 +30,7 @@ function runValidation(value, validations) {
                 result = !!(typeof value === 'number');
                 break;
             case 'positiveNumber':
-                result = !!(parseInt(value, 10) > 0);
+                result = !!(parseFloat(value) > 0);
                 break;
         }
 
