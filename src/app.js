@@ -27,7 +27,7 @@ function runValidation(value, validations) {
                 result = !!value;
                 break;
             case 'number':
-                result = !!(typeof value === 'number');
+                return parseFloat(val) === 0 ? true : parseFloat(val) / val === 1;
                 break;
             case 'positiveNumber':
                 result = !!(parseFloat(value) > 0);
